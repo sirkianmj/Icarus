@@ -157,7 +157,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Icarus
+CMAKE_PROJECT_NAME:STATIC=IcarusCore
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/ranlib.exe
@@ -243,6 +243,15 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+IcarusCore_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
+
+//Value Computed by CMake
+IcarusCore_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+IcarusCore_SOURCE_DIR:STATIC=F:/Icarus
+
+//Value Computed by CMake
 Icarus_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
 
 //Value Computed by CMake
@@ -250,6 +259,27 @@ Icarus_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 Icarus_SOURCE_DIR:STATIC=F:/Icarus
+
+//Value Computed by CMake
+InfiniaCore_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
+
+//Value Computed by CMake
+InfiniaCore_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+InfiniaCore_SOURCE_DIR:STATIC=F:/Icarus
+
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
+
+//Value Computed by CMake
+Project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=F:/Icarus
+
+//Path to a file.
+SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
 
 
 ########################
