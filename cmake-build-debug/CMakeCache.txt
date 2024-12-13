@@ -113,7 +113,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=F:/Icarus/cmake-build-debug/CMakeFiles/p
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Icarus
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/IcarusCore
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/ld.exe
@@ -251,32 +251,11 @@ IcarusCore_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 IcarusCore_SOURCE_DIR:STATIC=F:/Icarus
 
-//Value Computed by CMake
-Icarus_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
+//OpenGL library for win32
+OPENGL_gl_LIBRARY:STRING=opengl32
 
-//Value Computed by CMake
-Icarus_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Icarus_SOURCE_DIR:STATIC=F:/Icarus
-
-//Value Computed by CMake
-InfiniaCore_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
-
-//Value Computed by CMake
-InfiniaCore_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-InfiniaCore_SOURCE_DIR:STATIC=F:/Icarus
-
-//Value Computed by CMake
-Project_BINARY_DIR:STATIC=F:/Icarus/cmake-build-debug
-
-//Value Computed by CMake
-Project_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Project_SOURCE_DIR:STATIC=F:/Icarus
+//GLU library for win32
+OPENGL_glu_LIBRARY:STRING=glu32
 
 //Path to a file.
 SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
@@ -440,6 +419,12 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_TAPI-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding OpenGL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
+//ADVANCED property for variable: OPENGL_gl_LIBRARY
+OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glu_LIBRARY
+OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 
