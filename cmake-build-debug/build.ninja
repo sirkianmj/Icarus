@@ -67,6 +67,33 @@ build CMakeFiles/IcarusCore.dir/src/main.cpp.obj: CXX_COMPILER__IcarusCore_unsca
   TARGET_COMPILE_PDB = CMakeFiles\IcarusCore.dir\
   TARGET_PDB = IcarusCore.pdb
 
+build CMakeFiles/IcarusCore.dir/src/GameObject.cpp.obj: CXX_COMPILER__IcarusCore_unscanned_Debug F$:/Icarus/src/GameObject.cpp || cmake_object_order_depends_target_IcarusCore
+  DEP_FILE = CMakeFiles\IcarusCore.dir\src\GameObject.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IF:/Icarus/include -IF:/Icarus/libs/glm -IF:/Icarus/libs/glew/include -isystem F:/IcarusDepn/SFML-2.6.2/include
+  OBJECT_DIR = CMakeFiles\IcarusCore.dir
+  OBJECT_FILE_DIR = CMakeFiles\IcarusCore.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\IcarusCore.dir\
+  TARGET_PDB = IcarusCore.pdb
+
+build CMakeFiles/IcarusCore.dir/src/Camera.cpp.obj: CXX_COMPILER__IcarusCore_unscanned_Debug F$:/Icarus/src/Camera.cpp || cmake_object_order_depends_target_IcarusCore
+  DEP_FILE = CMakeFiles\IcarusCore.dir\src\Camera.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IF:/Icarus/include -IF:/Icarus/libs/glm -IF:/Icarus/libs/glew/include -isystem F:/IcarusDepn/SFML-2.6.2/include
+  OBJECT_DIR = CMakeFiles\IcarusCore.dir
+  OBJECT_FILE_DIR = CMakeFiles\IcarusCore.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\IcarusCore.dir\
+  TARGET_PDB = IcarusCore.pdb
+
+build CMakeFiles/IcarusCore.dir/src/ShadeUtils.cpp.obj: CXX_COMPILER__IcarusCore_unscanned_Debug F$:/Icarus/src/ShadeUtils.cpp || cmake_object_order_depends_target_IcarusCore
+  DEP_FILE = CMakeFiles\IcarusCore.dir\src\ShadeUtils.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IF:/Icarus/include -IF:/Icarus/libs/glm -IF:/Icarus/libs/glew/include -isystem F:/IcarusDepn/SFML-2.6.2/include
+  OBJECT_DIR = CMakeFiles\IcarusCore.dir
+  OBJECT_FILE_DIR = CMakeFiles\IcarusCore.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\IcarusCore.dir\
+  TARGET_PDB = IcarusCore.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target IcarusCore
@@ -75,11 +102,11 @@ build CMakeFiles/IcarusCore.dir/src/main.cpp.obj: CXX_COMPILER__IcarusCore_unsca
 #############################################
 # Link the executable IcarusCore.exe
 
-build IcarusCore.exe: CXX_EXECUTABLE_LINKER__IcarusCore_Debug CMakeFiles/IcarusCore.dir/src/Window.cpp.obj CMakeFiles/IcarusCore.dir/src/main.cpp.obj | F$:/IcarusDepn/SFML-2.6.2/lib/libsfml-graphics-d.a F$:/Icarus/libs/glew/lib/Release/x64/glew32.lib F$:/IcarusDepn/SFML-2.6.2/lib/libsfml-window-d.a F$:/IcarusDepn/SFML-2.6.2/lib/libsfml-system-d.a
+build IcarusCore.exe: CXX_EXECUTABLE_LINKER__IcarusCore_Debug CMakeFiles/IcarusCore.dir/src/Window.cpp.obj CMakeFiles/IcarusCore.dir/src/main.cpp.obj CMakeFiles/IcarusCore.dir/src/GameObject.cpp.obj CMakeFiles/IcarusCore.dir/src/Camera.cpp.obj CMakeFiles/IcarusCore.dir/src/ShadeUtils.cpp.obj | F$:/IcarusDepn/SFML-2.6.2/lib/libsfml-graphics-d.a F$:/Icarus/libs/glew/lib/Release/x64/glew32.lib F$:/IcarusDepn/SFML-2.6.2/lib/libsfml-window-d.a F$:/IcarusDepn/SFML-2.6.2/lib/libsfml-system-d.a
   FLAGS = -g
   LINK_LIBRARIES = F:/IcarusDepn/SFML-2.6.2/lib/libsfml-graphics-d.a  F:/Icarus/libs/glew/lib/Release/x64/glew32.lib  -lopengl32  F:/IcarusDepn/SFML-2.6.2/lib/libsfml-window-d.a  F:/IcarusDepn/SFML-2.6.2/lib/libsfml-system-d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\IcarusCore.dir
-  POST_BUILD = cd .
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D F:\Icarus\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -E copy_directory F:/Icarus/src/Shaders F:/Icarus/cmake-build-debug/shaders"
   PRE_LINK = cd .
   TARGET_COMPILE_PDB = CMakeFiles\IcarusCore.dir\
   TARGET_FILE = IcarusCore.exe

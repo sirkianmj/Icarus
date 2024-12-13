@@ -17,6 +17,12 @@ find_package(SFML 2.6.2 COMPONENTS system window graphics REQUIRED)
 set(SOURCES
         src/Window.cpp
         src/main.cpp
+        include/GameObject.h
+        src/GameObject.cpp
+        include/Camera.h
+        src/Camera.cpp
+        include/ShaderUtils.h
+        src/ShadeUtils.cpp
         # Add other source files here as needed
 )
 
@@ -46,3 +52,14 @@ target_link_libraries(IcarusCore
 # Link OpenGL (likely redundant if you're using sfml-window, but included for completeness)
 find_package(OpenGL REQUIRED)
 target_link_libraries(IcarusCore OpenGL::GL)
+
+# Define shader source and destination paths
+set(SHADER_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/Shaders")
+set(SHADER_DEST_DIR "${CMAKE_BINARY_DIR}")  # Just the build directory, no need for 'cmake-build-debug'
+
+# Add a custom command to copy the shaders
+add_custom_command(TARGET IcarusCore POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${SHADER_SOURCE_DIR} ${SHADER_DEST_DIR}/shaders
+        COMMENT "Copying shader files to build directory"
+)

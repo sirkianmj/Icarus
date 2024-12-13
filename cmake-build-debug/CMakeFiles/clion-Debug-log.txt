@@ -13,6 +13,6 @@
 -- Detecting CXX compile features - done
 -- Found SFML 2.6.2 in F:/IcarusDepn/SFML-2.6.2/lib/cmake/SFML
 -- Found OpenGL: opengl32
--- Configuring done (2.1s)
+-- Configuring done (1.6s)
 -- Generating done (0.0s)
 -- Build files have been written to: F:/Icarus/cmake-build-debug
