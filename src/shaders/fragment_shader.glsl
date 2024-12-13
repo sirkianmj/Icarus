@@ -1,10 +1,8 @@
 #version 330 core
 
-in vec3 vertexColor; // Input from vertex shader
-
-out vec4 FragColor; // Output color to the framebuffer
+in vec3 ourColor; // Input color from vertex shader
+out vec4 FragColor; // Output color
 
 void main() {
-    // Set the fragment color to the vertex color
-    FragColor = vec4(vertexColor, 1.0f);
+    FragColor = vec4(ourColor, 1.0f); // Set the fragment color
 }

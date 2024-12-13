@@ -1,42 +1,30 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <GL/glew.h> // Must be first
+#include <GL/glew.h>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 #include <string>
-#include <glm/glm.hpp> // For handling 3D math (we'll add glm for matrix transformations)
+#include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 class Window {
 private:
     sf::RenderWindow window;
-    std::string windowTitle;
-    int width, height;
-    glm::mat4 viewMatrix; // View matrix for camera
-    glm::mat4 projectionMatrix; // Projection matrix for 3D perspective
-    void handleEvents();
-public:
-    // Constructor to initialize the window with a title and size
-    Window();
+    GLuint shaderProgram;
+    GLuint VAO, VBO, EBO;
+    glm::mat4 model, view, projection;
 
-    // Display current window properties
-    void displayProperties();
-
-    // Handle user input for new title, width, and height
-    void handleUserInput();
-
-    // Main game loop to run the window and handle events
-    void runGameLoop();
-
-    // Initialize OpenGL settings
     void initOpenGL();
-
-    // Render a basic 3D cube
+    void loadShaders();
+    void setupBuffers();
     void renderCube();
+    void handleEvents();
 
-    // Set up basic camera transformations
-    void setCamera();
+public:
+    Window();  // Constructor to initialize the window with a title and size
+    void runGameLoop();  // Main game loop to run the window and handle events
 };
-
+void checkOpenGLError();
 #endif
