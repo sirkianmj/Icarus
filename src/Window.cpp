@@ -81,43 +81,35 @@ void Window::loadShaders() {
     std::string fragmentSource = loadShaderSource("fragment_shader.glsl");
 
     shaderProgram = createShaderProgram(vertexSource, fragmentSource);
-}
 
+    if (shaderProgram == 0) {
+        std::cerr << "Shader program creation failed!" << std::endl;
+        // Handle the error appropriately. For example, exit the application or prevent further rendering.
+        exit(EXIT_FAILURE); // or return if you want to recover gracefully
+    }
+}
 void Window::setupBuffers() {
     GLfloat vertices[] = {
-            -1.0f, -1.0f, -1.0f, 1.0f, 0.0f, 0.0f,  // Red
-            1.0f, -1.0f, -1.0f, 0.0f, 1.0f, 0.0f,   // Green
-            1.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f,    // Blue
-            -1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f,   // Yellow
-            -1.0f, -1.0f, 1.0f, 1.0f, 0.0f, 1.0f,   // Magenta
-            1.0f, -1.0f, 1.0f, 0.0f, 1.0f, 1.0f,    // Cyan
-            1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,     // White
-            -1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f     // Red again
-    };
-
-    GLuint indices[] = {
-            0, 1, 2, 0, 2, 3,
-            4, 5, 6, 4, 6, 7,
-            0, 1, 5, 0, 5, 4,
-            3, 2, 6, 3, 6, 7,
-            1, 2, 6, 1, 6, 5,
-            0, 3, 7, 0, 7, 4
+            // Positions         // Colors
+            -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, // Bottom-left, Red
+            0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // Bottom-right, Green
+            0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f  // Top, Blue
     };
 
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
 
     glBindVertexArray(VAO);
+
+    // Vertex buffer
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
+    // Position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
 
+    // Color attribute
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
 
@@ -125,16 +117,14 @@ void Window::setupBuffers() {
     glBindVertexArray(0);
 }
 void Window::renderCube() {
-    // Clear the screen and depth buffer
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f); // Set background color
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Use the shader program
     glUseProgram(shaderProgram);
-
 
     // Set transformation matrices
     model = glm::mat4(1.0f);
-    view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    view = glm::lookAt(glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
     GLuint modelLoc = glGetUniformLocation(shaderProgram, "model");
@@ -145,14 +135,15 @@ void Window::renderCube() {
     glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
-    // Bind VAO and draw
+    // Draw
     glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+    glDrawArrays(GL_TRIANGLES, 0, 3); // Drawing a triangle
     glBindVertexArray(0);
-    checkOpenGLError();
 
+    checkOpenGLError();
     std::cout << "Using shader program: " << shaderProgram << std::endl;
 }
+
 
 void Window::handleEvents() {
     sf::Event event;
